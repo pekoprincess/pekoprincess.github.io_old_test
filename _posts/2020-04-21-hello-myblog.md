@@ -1,6 +1,6 @@
 ---
 title: "hello,myblog"
-tags: 
+tags: |
     - helloworld
 ---
 
