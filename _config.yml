@@ -1,1 +1,8 @@
-theme: jekyll-theme-leap-day
+theme:       jekyll-theme-leap-day
+source:      .
+destination: ./_site
+plugins:     ./_plugins
+layouts:     ./_layouts
+data_source: ./_data
+encoding:     "utf-8"
+
