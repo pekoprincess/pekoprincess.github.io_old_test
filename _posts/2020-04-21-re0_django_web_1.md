@@ -1,10 +1,10 @@
 ---
 title: "Re0：从零开始的Django构建之旅"
-tags: |
-	- django
-	- python
-	- mysql
-	- web
+tags:
+    - django
+    - python
+    - mysql
+    - web
 
 ---
 # Re0：从零开始的Django构建之旅
