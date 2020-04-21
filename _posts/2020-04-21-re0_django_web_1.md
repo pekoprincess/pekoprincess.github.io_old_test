@@ -1,6 +1,14 @@
 ---
 title: "Re0：从零开始的Django构建之旅"
-auth: pekoprincess
+auther: pekoprincess
+layout: post
+date: 2020-04-21 13:00:00
+tags:
+	- django
+	- python
+	- mysql
+	- web
+
 ---
 # Re0：从零开始的Django构建之旅
 
