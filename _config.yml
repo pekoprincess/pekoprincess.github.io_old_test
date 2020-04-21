@@ -11,6 +11,7 @@ description: | # 头像背后的信息（html格式），<br/>代表换行
   ></iframe>
 url: https://pekoprincess.github.io/
 baseurl: "" # 假如你的博客是建在某个目录下的，请在这里加上目录名，并且下面配置的所有链接里的`/assets`前也要加，即`/your_baseurl/assets`。这一项结尾不要有'/'。
+theme: jekyll-theme-WuK
 
 jekyll-theme-WuK: # 我的主题的自定义样式都在这个命名空间
   default:
@@ -521,7 +522,7 @@ jekyll-theme-WuK: # 我的主题的自定义样式都在这个命名空间
               { src: path+'plugin/math/math.js', async: true }
           ]
           });
-        "></script>
+        ></script>
   page404:
     append_before:
       - | # 腾讯公益
