@@ -1,19 +1,35 @@
-﻿title: wu-kan # 站点标题
+title: wu-kan # 站点标题
 description: | # 头像背后的信息（html格式），<br/>代表换行
-   <a href="mailto:pekoprincess@hotmail.com">
-     <i class="fas fa-envelope"></i>
-   </a>
-   <iframe
+  SYSU超算17级在读<br/>
+  永远喜欢水野爱<br/>
+  田宫例四驱车<br/>
+  ASC<br/>
+  <a href="mailto:i@wu-kan.cn">
+    <i class="fas fa-envelope"></i>
+  </a>
+  <a href="https://github.com/wu-kan">
+    <i class="fab fa-github"></i>
+  </a>
+  <a href="https://codeforces.com/profile/WuK">
+    <i class="fas fa-chart-bar"></i>
+  </a>
+  <a href="https://vjudge.net/user/WuK">
+    <i class="fas fa-smile"></i>
+  </a>
+  <a href="https://www.zhihu.com/people/wu.kan/activities">
+    <i class="fab fa-zhihu"></i>
+  </a>
+  <iframe
     src="https://music.163.com/outchain/player?type=0&id=155059595&auto=0&height=32"
     width=100%
     height=52
     frameborder="no"
     border="0"
     marginwidth="0"
-    marginheight="0"/>
-url: https://pekoprincess.github.io/
+    marginheight="0"
+  ></iframe>
+url: https://wu-kan.cn # 你的域名，例如 https://wu-kan.github.io
 baseurl: "" # 假如你的博客是建在某个目录下的，请在这里加上目录名，并且下面配置的所有链接里的`/assets`前也要加，即`/your_baseurl/assets`。这一项结尾不要有'/'。
-remote_theme: https://github.com/wu-kan/jekyll-theme-WuK@3.1.4 #使用固定版本号以防止主题更新导致站点显示错乱
 
 jekyll-theme-WuK: # 我的主题的自定义样式都在这个命名空间
   default:
@@ -21,8 +37,8 @@ jekyll-theme-WuK: # 我的主题的自定义样式都在这个命名空间
       theme-base: theme-base-07 # 可选的主题色包括08~0f，见 <https://github.com/poole/lanyon>
       layout-reverse: false # 开启后sidebar在右边，反之左边
       sidebar-overlay: false # 开启后正文不随sidebar移动而移动
-    append_to_head: 
-      - |
+    append_to_head: # 通过内嵌html的方式引入并定制插件，删改前确定知道自己在做什么。定制插件的方式可以参考这篇文章 <https://wu-kan.cn/_posts/2019-01-18-基于Jekyll搭建个人博客/>
+      - | #一些页面优化标签，看不懂可跳过
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1"
@@ -107,6 +123,9 @@ jekyll-theme-WuK: # 我的主题的自定义样式都在这个命名空间
                   }, {
                     "selector": ".page-title",
                     "text": "这是标题~"
+                  }, {
+                    "selector": ".v",
+                    "text": "评论没有审核，要对自己的发言负责哦~"
                   }]
                 },
                 "model": [
@@ -119,6 +138,21 @@ jekyll-theme-WuK: # 我的主题的自定义样式都在这个命名空间
                   "https:\/\/cdn.jsdelivr.net/gh/xiaoski/live2d_models_collection/mikoto/mikoto.model.json",
                   "https:\/\/cdn.jsdelivr.net/gh/xiaoski/live2d_models_collection/uiharu/uiharu.model.json"]
               });'
+        ></script>
+      - | # 百度爬虫推送，http站点使用 http://push.zhanzhang.baidu.com/push.js
+        <script
+          src='https://zz.bdstatic.com/linksubmit/push.js'
+          async="async"
+        ></script>
+      - | #<!-- Global site tag (gtag.js) - Google Analytics -->
+        <script
+          async="async"
+          src="https://www.googletagmanager.com/gtag/js?id=UA-163543967-1"
+          onload="
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'UA-163543967-1');"
         ></script>
       - | # 网站背景图片，分竖屏、宽屏；改链接即可，不想用可以把这一项全删掉；要换壁纸图片的话可把url内的部分换成你自己的，比如你放在 /assets/image/background.jpg，那就改成 url(/assets/image/background.jpg)
         <style>
@@ -283,6 +317,47 @@ jekyll-theme-WuK: # 我的主题的自定义样式都在这个命名空间
             src='https://cdn.jsdelivr.net/npm/html-contents/html-contents.min.js'
             onload="htmlContents('#toc', {listType: 'o', filter: function(arr) {return !arr.matches('.masthead-title')}})"
           ></script>
+        - | # 运行时间，可将倒数第三行的时间改成你自己的建站时间，格式仿照上面的；不需要的话可以把这一项都删掉
+          <div>
+            <i class="fas fa-cog fa-spin fa-fw"></i>
+            <span id="run_time_day">
+              <i class="fas fa-spinner fa-pulse"></i>
+            </span>天
+            <span id="run_time_hour">
+              <i class="fas fa-spinner fa-pulse"></i>
+            </span>时
+            <span id="run_time_minute">
+              <i class="fas fa-spinner fa-pulse"></i>
+            </span>分
+            <span id="run_time_second">
+              <i class="fas fa-spinner fa-pulse"></i>
+            </span>秒
+            <script>
+              setInterval(function (BirthDay) {
+                function setzero(i) {
+                  if (i < 10) return "0" + i;
+                  return i;
+                }
+                BirthDay = new Date(BirthDay);
+                today = new Date();
+                timeold = (today.getTime() - BirthDay.getTime());
+                sectimeold = timeold / 1000;
+                secondsold = Math.floor(sectimeold);
+                msPerDay = 24 * 60 * 60 * 1000;
+                e_daysold = timeold / msPerDay;
+                daysold = Math.floor(e_daysold);
+                e_hrsold = (e_daysold - daysold) * 24;
+                hrsold = Math.floor(e_hrsold);
+                e_minsold = (e_hrsold - hrsold) * 60;
+                minsold = Math.floor((e_hrsold - hrsold) * 60);
+                seconds = Math.floor((e_minsold - minsold) * 60);
+                document.getElementById("run_time_day").innerHTML = daysold;
+                document.getElementById("run_time_hour").innerHTML = setzero(hrsold);
+                document.getElementById("run_time_minute").innerHTML = setzero(minsold);
+                document.getElementById("run_time_second").innerHTML = setzero(seconds);
+              }, 1000, "10/04/2017 11:03:56") // 这是我第一篇CSDN博客的时间
+            </script>
+          </div>
         - | # 不蒜子页面统计，看不懂可不改
           <div>
             <div>
@@ -311,13 +386,20 @@ jekyll-theme-WuK: # 我的主题的自定义样式都在这个命名空间
         - | # Copyright声明
           <div>
             <i class="fas fa-copyright fa-fw"></i>
-            2020-2020 pekoprincess
+            2017-2020 WuK
           </div>
         - | # 觉得我的主题好用的话，让更多的人知道它吧！
           <div>
             <i class="fas fa-thumbs-up fa-fw"></i>
             <a href="https://jekyll-theme-WuK.wu-kan.cn">
               jekyll-theme-WuK
+            </a>
+          </div>
+        - | # 我的备案信息，请你的网站删掉这一项。互联网非法外之地！
+          <div>
+            <i class="fas fa-info-circle fa-fw"></i>
+            <a href="http://beian.miit.gov.cn">
+              粤 ICP 备 20024947 号
             </a>
           </div>
       wordcount: # 全站字数统计
@@ -416,6 +498,25 @@ jekyll-theme-WuK: # 我的主题的自定义样式都在这个命名空间
               return button;
             })'
         ></script>
+  comments: # 留言页
+    alert:
+      | # 配置评论区，appId和appKey需要换成你自己的，见<https://valine.js.org/configuration.html>，推荐再整一个评论管理系统<https://github.com/DesertsP/Valine-Admin>
+      <div class="v">
+        <i class="fas fa-spinner fa-pulse"></i>
+      </div>
+      <script
+        src='https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js'
+        defer='defer'
+        onload='
+          new Valine({
+            "el": document.getElementsByClassName("v")[0],
+            "appId": "9hABRddSuEkTgqLrt1VSK5B1-gzGzoHsz",
+            "appKey": "NJ7RwmgrxsF7KDzlqU7YewlL",
+            "placeholder": "在这里评论吧！",
+            "visitor": true,
+            "recordIP": true
+          })'
+      ></script>
   post:
     date: # 显示博文时间
       enable: true
@@ -461,6 +562,20 @@ jekyll-theme-WuK: # 我的主题的自定义样式都在这个命名空间
     append_to_head:
       - | # 需要配置的变量见<https://merger.justhx.com/cn/docs/configure>
         <script>
+          var usage = "payment";
+          var wechat = "wxp://f2f0BhUoIC_9gex7-tC2PRvVuoA486mK5WyC";
+          var tenpay = "https://i.qianbao.qq.com/wallet/sqrcode.htm?m=tenpay&f=wallet&a=1&ac=CAEQ77zFwQMY-6u57gU%3D_xxx_sign&u=942759535&n=%E8%94%9A";
+          var alipay = "https://qr.alipay.com/fkx02750b5kbplxvudqrx16";
+          var paypal = "https://paypal.me/wukan0621";
+          var myname = "WuK";
+          var profile = "https://gravatar.loli.net/avatar/289efba375d63424de3c49569c446744?s=320";
+          var multilingual = true;
+          var myname_hans = "吴坎";
+          var myname_hant = "吴坎";
+          var myname_eng = "WuK";
+          var title = "选择你的支付方式";
+          var subtitle = "跟随进一步的指示以向" + myname + "付款";
+          var qrcodeapi = "https://www.zhihu.com/qrcode?url=";
         </script>
       - |
         <meta
@@ -524,7 +639,7 @@ jekyll-theme-WuK: # 我的主题的自定义样式都在这个命名空间
               { src: path+'plugin/math/math.js', async: true }
           ]
           });
-        ></script>
+        "></script>
   page404:
     append_before:
       - | # 腾讯公益
@@ -545,6 +660,7 @@ plugins: # <https://jekyllrb.com/docs/plugins/>
   - jekyll-feed # 为站点生成RSS源
   - jekyll-remote-theme # 使用remote_theme插件实现主题的前后分离，详见<https://github.com/benbalter/jekyll-remote-theme/>
 
+remote_theme: https://github.com/wu-kan/jekyll-theme-WuK@3.1.4 #使用固定版本号以防止主题更新导致站点显示错乱
 
 readme_index: # 缺失index.md和index.html时，使用README.md代替之
   with_frontmatter: true # 支持带有yaml头的README
